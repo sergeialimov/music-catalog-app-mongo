@@ -1,1 +1,1 @@
-export { TracksController } from './tracks.controller';
+export { SongsController } from './songs.controller';

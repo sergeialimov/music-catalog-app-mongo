@@ -1,4 +1,4 @@
-export declare class TracksService {
+export declare class SongsService {
     getAll(): ({
         id: number;
         name: string;
@@ -17,7 +17,7 @@ export declare class TracksService {
         hidden: boolean;
     })[];
     getOne(id: number): any;
-    createTrack(name: string): any;
-    updateTrack(id: number, newName: string): any;
-    deleteTrack(id: number): string;
+    createSong(name: string): any;
+    updateSong(id: number, newName: string): any;
+    deleteSong(id: number): string;
 }

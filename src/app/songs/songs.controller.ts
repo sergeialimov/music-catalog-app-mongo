@@ -9,40 +9,40 @@ import {
   Param,
   Query,
 } from '@nestjs/common';
-import { TracksService } from './tracks.service';
+import { SongsService } from './songs.service';
 
-@Controller('tracks')
-export class TracksController {
-  constructor(private tracksService: TracksService) {}
+@Controller('songs')
+export class SongsController {
+  constructor(private songsService: SongsService) {}
 
   @Get('all')
   @HttpCode(200)
   getAll() {
-    return this.tracksService.getAll();
+    return this.songsService.getAll();
   }
 
   @Get('one/:id')
   @HttpCode(200)
   getOneQuery(@Param('id') id) {
-    return this.tracksService.getOne(+id);
+    return this.songsService.getOne(+id);
   }
 
   @Put('create')
   @HttpCode(201) // 201 Created
   create(@Query() query) {
-    return this.tracksService.createTrack(query.name);
+    return this.songsService.createSong(query.name);
   }
 
   @Patch('update-name')
   @HttpCode(202) // 202 Accepted
   update(@Query() query) {
-    return this.tracksService.updateTrack(+query.id, query.name);
+    return this.songsService.updateSong(+query.id, query.name);
   }
 
   @Delete('delete')
   @HttpCode(204) // 204 No Content
   delete(@Query('id') id: number) {
-    return this.tracksService.deleteTrack(+id);
+    return this.songsService.deleteSong(+id);
   }
 
   @Get('all-redirect')

@@ -1,7 +1,7 @@
-import { TracksService } from './tracks.service';
-export declare class TracksController {
-    private tracksService;
-    constructor(tracksService: TracksService);
+import { SongsService } from './songs.service';
+export declare class SongsController {
+    private songsService;
+    constructor(songsService: SongsService);
     getAll(): ({
         id: number;
         name: string;

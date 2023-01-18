@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TracksService = void 0;
-const tracks = {
+exports.SongsService = void 0;
+const songs = {
     1: {
         id: 1,
         name: 'Song 1',
@@ -23,53 +23,53 @@ const tracks = {
         hidden: true,
     },
 };
-class TracksService {
+class SongsService {
     getAll() {
-        const tracksArr = Object.values(tracks);
-        return tracksArr.filter((track) => !track.hidden);
+        const songsArr = Object.values(songs);
+        return songsArr.filter((song) => !song.hidden);
     }
     getOne(id) {
         if (typeof id !== 'number') {
             return 'Id should be a number';
         }
-        if (id <= 0 || id > Object.keys(tracks).length) {
+        if (id <= 0 || id > Object.keys(songs).length) {
             return `Id ${id} is not correct`;
         }
-        if (tracks[id].hidden) {
+        if (songs[id].hidden) {
             return `Song ${id} is hidden`;
         }
-        return tracks[id];
+        return songs[id];
     }
-    createTrack(name) {
-        const id = Object.keys(tracks).length + 1;
-        tracks[id] = {
+    createSong(name) {
+        const id = Object.keys(songs).length + 1;
+        songs[id] = {
             id,
             name,
             hiddden: false,
         };
-        return tracks[id];
+        return songs[id];
     }
-    updateTrack(id, newName) {
+    updateSong(id, newName) {
         if (typeof id !== 'number') {
             return 'Id should be a number';
         }
-        if (id <= 0 || id > Object.keys(tracks).length) {
+        if (id <= 0 || id > Object.keys(songs).length) {
             return `Id ${id} is not correct`;
         }
-        const track = tracks[id];
-        track.name = newName;
-        return track;
+        const song = songs[id];
+        song.name = newName;
+        return song;
     }
-    deleteTrack(id) {
+    deleteSong(id) {
         if (typeof id !== 'number') {
             return 'Id should be a number';
         }
-        if (id <= 0 || id > Object.keys(tracks).length) {
+        if (id <= 0 || id > Object.keys(songs).length) {
             return `Id ${id} is not correct`;
         }
-        const track = tracks[id];
-        track.hidden = true;
+        const song = songs[id];
+        song.hidden = true;
     }
 }
-exports.TracksService = TracksService;
-//# sourceMappingURL=tracks.service.js.map
+exports.SongsService = SongsService;
+//# sourceMappingURL=songs.service.js.map
