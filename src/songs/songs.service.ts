@@ -1,3 +1,9 @@
+import { Model } from 'mongoose';
+import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Song, SongDocument } from 'src/schemas/song.schema';
+
+
 const songs = {
   1: {
     id: 1,
@@ -21,7 +27,14 @@ const songs = {
   },
 };
 
+@Injectable()
 export class SongsService {
+  constructor(@InjectModel(Song.title) private songModel: Model<SongDocument>) {}
+
+  findAll() {
+    return this.songModel.find().exec();
+  }
+
   getAll() {
     const songsArr = Object.values(songs);
     return songsArr.filter((song) => !song.hidden);
