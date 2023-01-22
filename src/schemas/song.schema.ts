@@ -1,18 +1,18 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
 
-export type SongDocument = HydratedDocumen<Song>;
+export type SongDocument = HydratedDocument<Song>;
 
-@Schema
+@Schema()
 export class Song {
   @Prop()
-  title: string,
+  title: string
 
   @Prop()
-  author: string,
+  author: string
 
   @Prop()
-  year: number,
+  year: number
 }
 
 
